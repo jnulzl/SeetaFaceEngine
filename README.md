@@ -48,6 +48,8 @@ Saved result to path:  ./test_res.jpg
 Sim is:  [0.9999999403953552]
 ```
 
+![Demo](FaceDetection/data/test_res.jpg)
+
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
 
 ### Description
