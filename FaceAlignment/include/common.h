@@ -100,6 +100,7 @@ namespace seeta {
     double x;
     double y;
   } FacialLandmark;
+
 }  // namespace seeta
 
 #endif  // SEETA_COMMON_H_

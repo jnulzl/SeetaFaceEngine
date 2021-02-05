@@ -113,8 +113,8 @@ uint8_t FaceIdentification::ExtractFeatureWithCrop(const ImageData &src_image,
 }
 
 float FaceIdentification::CalcSimilarity(FaceFeatures const fc1,
-    FaceFeatures const fc2,
-    long dim) {
+                                         FaceFeatures const fc2,
+                                         long dim) {
   if (dim == -1) {
     dim = recognizer->feature_size();
   }

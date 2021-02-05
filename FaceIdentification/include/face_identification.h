@@ -88,8 +88,8 @@ public:
   // Calculate similarity of face features fc1 and fc2.
   // dim = -1 default feature size
   SEETA_API float CalcSimilarity(FaceFeatures const fc1,
-      FaceFeatures const fc2, 
-      long dim = -1);
+                                 FaceFeatures const fc2,
+                                 long dim = -1);
   
 private:
   class Recognizer;

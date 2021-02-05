@@ -1,5 +1,39 @@
 ## SeetaFace Engine  
 
+- Add Python API for SeetaFaceEngine 
+FaceDetection/python
+├── face_detection.py
+├── pyFaceDetection.cpp
+└── test_face_detection.py
+FaceAlignment/python
+├── face_alignment.py
+├── pyFaceAlignment.cpp
+└── test_face_alignment.py
+FaceIdentification/python
+├── face_identification.py
+├── pyFaceIdentification.cpp
+└── test_face_identification.py
+
+```shell
+mkdir build
+cd build 
+cmake ../ -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/home/jnulzl/softwares/anaconda3/bin/python3 #Your python executable full path
+make -j8
+cd ..
+python test_seeta_face_engine.py # Before run this python script you should unpack "FaceIdentification/model/seeta_fr_v1.0*"
+Taking time:  0.3396107  seconds
+Image size (hxw):  (694, 550, 3)
+Detected face num:  1
+rect[0] :  [158.0, 216.0, 224.0, 224.0, 0.0, 0.0, 0.0, 24.380210876464844]
+facelandmarks[0] :  [[218 320]
+ [301 300]
+ [271 375]
+ [253 409]
+ [314 393]]
+Saved result to path:  ./test_res.jpg
+Sim is:  [0.9999999403953552]
+```
+
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
 
 ### Description

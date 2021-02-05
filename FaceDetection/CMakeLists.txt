@@ -3,9 +3,9 @@ cmake_minimum_required(VERSION 3.1.0)
 project(seeta_facedet_lib)
 
 # Build options
-option(BUILD_EXAMPLES  "Set to ON to build examples"  ON)
-option(USE_OPENMP      "Set to ON to build use openmp"  ON)
-option(USE_SSE         "Set to ON to build use SSE"  ON)
+option(BUILD_EXAMPLES   "Set to ON to build examples"    ON)
+option(USE_OPENMP       "Set to ON to build use openmp"  ON)
+option(USE_SSE          "Set to ON to build use SSE"     ON)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
 
@@ -62,8 +62,27 @@ if (BUILD_EXAMPLES)
     else()
         include_directories(${OpenCV_INCLUDE_DIRS})
         list(APPEND facedet_required_libs ${OpenCV_LIBS})
-        
-        add_executable(facedet_test src/test/facedetection_test.cpp)
-        target_link_libraries(facedet_test ${facedet_required_libs})
+        if(OpenCV_VERSION_MAJOR VERSION_LESS 4)
+            add_executable(facedet_test src/test/facedetection_test.cpp)
+            target_link_libraries(facedet_test ${facedet_required_libs})
+        endif()
     endif()
+endif()
+
+if(BUILD_PYTHON_API)
+    set(PY_LIB_NAME seeta_facedet)
+#    set(PYTHON_EXECUTABLE YOUR_PYTHON_EXECUTABLE_PATH)
+    set(pybind11_DIR ${PROJECT_SOURCE_DIR}/../third_party/pybind11/share/cmake/pybind11)
+    find_package(pybind11 REQUIRED)
+
+    file(GLOB _tmp ${CMAKE_CURRENT_SOURCE_DIR}/python/*.cpp)
+    set(src_for_python ${src_for_python} ${_tmp})
+    pybind11_add_module(${PY_LIB_NAME}_python ${src_for_python})
+    target_link_libraries(${PY_LIB_NAME}_python PRIVATE
+            ${PY_LIB_NAME}_lib)
+    target_include_directories(${PY_LIB_NAME}_python PRIVATE
+            ${PROJECT_SOURCE_DIR}/include
+            )
+    target_compile_options(${PY_LIB_NAME}_python PRIVATE -DMODEL_NAME=${PY_LIB_NAME})
+    set_target_properties(${PY_LIB_NAME}_python PROPERTIES OUTPUT_NAME ${PY_LIB_NAME})
 endif()
