@@ -1,18 +1,32 @@
 ## SeetaFace Engine  
 
 - Add Python API for SeetaFaceEngine 
-FaceDetection/python
-├── face_detection.py
-├── pyFaceDetection.cpp
-└── test_face_detection.py
-FaceAlignment/python
-├── face_alignment.py
-├── pyFaceAlignment.cpp
-└── test_face_alignment.py
-FaceIdentification/python
-├── face_identification.py
-├── pyFaceIdentification.cpp
-└── test_face_identification.py
+
+  FaceDetection/python
+
+  ├── face_detection.py
+
+  ├── pyFaceDetection.cpp
+
+  └── test_face_detection.py
+
+  FaceAlignment/python
+
+  ├── face_alignment.py
+
+  ├── pyFaceAlignment.cpp
+
+  └── test_face_alignment.py
+
+  FaceIdentification/python
+
+  ├── face_identification.py
+
+  ├── pyFaceIdentification.cpp
+
+  └── test_face_identification.py
+
+  
 
 ```shell
 mkdir build
