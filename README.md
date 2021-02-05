@@ -31,7 +31,7 @@
 ```shell
 mkdir build
 cd build 
-cmake ../ -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/home/jnulzl/softwares/anaconda3/bin/python3 #Your python executable full path
+cmake ../ -DBUILD_EXAMPLES=OFF -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=/home/jnulzl/softwares/anaconda3/bin/python3 #Your python executable full path
 make -j8
 cd ..
 python test_seeta_face_engine.py # Before run this python script you should unpack "FaceIdentification/model/seeta_fr_v1.0*"

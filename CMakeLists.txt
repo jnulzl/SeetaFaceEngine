@@ -4,6 +4,7 @@ project (SeetaFaceEngine)
 
 # Build options
 option(BUILD_PYTHON_API "Set to ON to build python api"  ON)
+option(BUILD_EXAMPLES  "Set to ON to build examples"  ON)
 
 set(OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/build/bin/)
 file(MAKE_DIRECTORY ${OUTPUT_DIRECTORY})

@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION  2.8.4)
 
-project (viplnet)
+#project (viplnet)
 
 
 set (VIPLNET_VERSION_MAJOR 4)
@@ -17,8 +17,8 @@ if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DGTEST_USE_OWN_TR1_TUPLE=1")
 endif (CMAKE_SYSTEM_NAME MATCHES "Darwin")
 
-set(VIPLNET_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
-set(VIPLNET_SRC_DIR ${PROJECT_SOURCE_DIR}/src)
+set(VIPLNET_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(VIPLNET_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 # set __VIOL_LOG__ macro
 # add_definitions(-D__VIPL_LOG__)
 
@@ -37,7 +37,7 @@ set_target_properties(viplnet PROPERTIES
 if(BUILD_PYTHON_API)
     set(PY_LIB_NAME viplnet)
     #    set(PYTHON_EXECUTABLE YOUR_PYTHON_EXECUTABLE_PATH)
-    set(pybind11_DIR ${PROJECT_SOURCE_DIR}/../third_party/pybind11/share/cmake/pybind11)
+    set(pybind11_DIR ${PROJECT_SOURCE_DIR}/third_party/pybind11/share/cmake/pybind11)
     find_package(pybind11 REQUIRED)
 
     file(GLOB _tmp ${CMAKE_CURRENT_SOURCE_DIR}/python/*.cpp)

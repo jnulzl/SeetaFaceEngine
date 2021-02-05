@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1.0)
 
-project(seeta_facedet_lib)
+#project(seeta_facedet_lib)
 
 # Build options
 option(BUILD_EXAMPLES   "Set to ON to build examples"    ON)
@@ -72,7 +72,7 @@ endif()
 if(BUILD_PYTHON_API)
     set(PY_LIB_NAME seeta_facedet)
 #    set(PYTHON_EXECUTABLE YOUR_PYTHON_EXECUTABLE_PATH)
-    set(pybind11_DIR ${PROJECT_SOURCE_DIR}/../third_party/pybind11/share/cmake/pybind11)
+    set(pybind11_DIR ${PROJECT_SOURCE_DIR}/third_party/pybind11/share/cmake/pybind11)
     find_package(pybind11 REQUIRED)
 
     file(GLOB _tmp ${CMAKE_CURRENT_SOURCE_DIR}/python/*.cpp)
